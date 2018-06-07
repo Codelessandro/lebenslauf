@@ -6,54 +6,103 @@ class App extends Component {
 
 
     render() {
-        var area = [
-            "Frontend"
+        var lifesteps = [
+            {
+                "date": "06/2009 – 06/2011",
+                "title": "Abitur",
+                "text": "St. Lioba-Schule Bad Nauheim - viert bester Abiturient - Abschlussnote: 1,2"
+            },
+            {
+                "date": "06/2011 – 10/2014",
+                "title": "Selbstständigkeit",
+                "text": "mit den Online-Projekten: staydu.com (>16.000 Mitglieder; Erwähnung in der New York Times) und yourtraveljobs.com" +
+                "\t\t\t\t(inkl. der größten internationalen Jobseite für Hostels)\n" +
+                "\t\t\t\tTätigkeit: Programmierung, Marketing, Konzept und Support\n" +
+                "\t\t\t\tGeschäfts– und Privatreisen nach: Südeuropa, Israel, \n" +
+                "\t\t\t\tRussland, Mongolei, China, Nordkorea, Australien und\n" +
+                "\t\t\t\tSüdostasien\n"
+            },
+            {
+                "date": "10/2014 – 06/2015",
+                "title": "Architektur Studium",
+                "text": "nach 10 Jahren Arbeit in der IT der Versuch einer persönlichen \n" +
+                "\t\t\t\tund beruflichen Neufindung\n"
+            },
+            {
+                "date": "ab Herbst 2015",
+                "title": "Bachelor Wirtschaftsinformatik",
+                "text": ""
+            },
+            {
+                "date": "ab Herbst 2015",
+                "title": "Stipendiat Konrad Adenauer Stiftung",
+                "text": ""
+            },
+            {
+                "date": "ab Herbst 2017",
+                "title": "cohooyo: FrontEnd & Founder",
+                "text": "gemeinsam mit dem Personalunternehmen Falkenstein konzipierte und entwickelte ich die APP cohooyo"
+            },
+            {
+                "date": "geplant ab Herbst 2018",
+                "title": "Master Informatik",
+                "text": "mit Schwerpunkt Machine Learning"
+            },
         ]
 
         var stacks = [
             {
-                "area": "Programming Languages",
+                "area": "Coding",
                 "stacks": [
                     {
                         "name": "Scala",
                         "rating": 2,
-                        "text": "good university level; teaching Scala as a Tutor in Tu-Berlin for 2 years",
-                        "img": "https://www.data-blogger.com/wp-content/uploads/2016/07/scala-logo-750x293.png"
+                        "text": "I got to know Scala at Advanced Programming in University at snet.tu-berlin where I have been teaching Scala as a Tutor for 2 years. Advanced Concepts are the use of Akka",
+                        "img": "https://ih0.redbubble.net/image.369005434.7112/flat,800x800,075,f.jpg"
                     },
                     {
                         "name": "Java",
-                        "github": "",
-                        "rating": 3
+                        "rating": 2,
+                        "text": "Java is a consistent follower through university and got a bit closer due to my teaching activites at snet Berlin and studying of distributed systems at TU Berlin",
+                        "img": "https://png.icons8.com/color/1600/java-coffee-cup-logo.png"
+
                     },
                     {
                         "name": "Python",
-                        "github": "http://..."
-                    }
-                ]
-            },
-            {
-                "area": "Frontend",
-                "stacks": [
-                    {
-                        "name": "Angular 4",
-                        "github": "http://www.web.de",
-                        "rating": 3
+                        "rating": 3,
+                        "text": "Python has been introduced to me in Machine Learning Context where I have used it in my bachelor thesis to create a convolutional network with tensorflow. I also played with django.",
+                        "img": "https://vignette.wikia.nocookie.net/lpunb/images/e/e4/Python.png/revision/latest?cb=20151113030452"
                     },
                     {
-                        "name": "Ionic 3",
-                        "github": "",
-                        "rating": 3
-                    }
+                        "name": "PHP",
+                        "rating": 3,
+                        "text": "I learned to program in PHP with 14 years - I have mainly used it for web development (a lot of own scripts and wordpress)",
+                        "img": "https://www.homepage-anleitung.de/wp-content/uploads/2015/06/php.png"
+                    },
+                    {
+                        "name": "Javascript & Typescript",
+                        "rating": 3,
+                        "text": "I teach Javascript at university in 'Webtechnolgien'. I developed Aps using Angular 4 & Ionic 3. Recently I got into react.",
+                        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/2000px-Unofficial_JavaScript_logo_2.svg.png"
+                    },
+                    {
+                        "name": "Ruby",
+                        "rating": 1,
+                        "text": "basic knowledge of ruby on rails.",
+                        "img": "https://pre00.deviantart.net/ec01/th/pre/i/2013/008/1/9/ruby_by_sakatagintoki117-d5qwq2l.png"
+                    },
                 ]
             },
             {
-                "area": "Backend",
+                "area": "IT Services",
                 "stacks": [
                     {
-                        "name": "Scala Play",
-                        "github": "http://www.web.de",
-                        "rating": 3
-                    }
+                        "name": "AWS",
+                        "text": "I know and understand the basic concepts of AWS and I am starting to migrating web pages to AWS",
+                        "rating": 1,
+                        "img": "https://pbs.twimg.com/profile_images/907648699718922241/_XyenLcK.jpg"
+                    },
+
                 ]
             },
             {
@@ -71,35 +120,56 @@ class App extends Component {
             return <Area name={e.area} stacks={e.stacks}/>;
         })
 
+        var lifestepList = lifesteps.map(function (e) {
+            return <Lifestep title={e.title} text={e.text} date={e.date}/>
+        })
+
+        const smallImage = {
+            maxWidth: '60px'
+        }
 
         return (
             <div>
-                <div>build with github, react and webstorm</div>
                 <div className="App">
                     <header className="App-header">
                         <img
-                            src={"https://d15shllkswkct0.cloudfront.net/wp-content/blogs.dir/1/files/2015/06/aws-logo.png"}
+                            src={"http://specialedtech.net/wp-content/uploads/2016/04/code-org-logo.png"}
                             className="App-logo" alt="logo"/>
-                        <h1 className="App-title">Bewerbung - Alessandro Schneider</h1>
+                        <h1 className="App-title">Digital Artisan<br/>Alessandro Schneider</h1>
                     </header>
                     <p className="App-intro">
                     </p>
                 </div>
 
+                <div>
+                    <Title name={"Legend"}/>
+                    <ul>
+                        <li>
+                            <img src={"1.png"} style={smallImage}/> first experience with stack/technology
+                        </li>
+                        <li>
+                            <img src={"2.png"} style={smallImage}/> good understanding of concepts and used it in
+                            serveral contexts/exercises
+
+                        </li>
+                        <li>
+                            <img src={"3.png"} style={smallImage}/> used stack/technology in production/project
+
+                        </li>
+                    </ul>
+                </div>
 
                 <div className={"skills"}>
                     <Title name={"Skills"}/>
-                    <Area/>
-                    <Area/>
-                    <Area/>
-                    <Area/>
+
+                    {areaList}
 
                 </div>
 
                 <div className={"lebenslauf"}>
-                    <Title name={"Lebenslauf"}/>
-                    <LifeStep/>
-                    <LifeStep/>
+                    <Title name={"CV"}/>
+                    {lifestepList}
+
 
                 </div>
 
@@ -110,40 +180,40 @@ class App extends Component {
 }
 
 
-class LifeStep extends Component {
+class Lifestep extends Component {
     render() {
         return <div className={"Lifestep"}>
             <div>
-                <h3>St. Lioba Schule</h3>
-                <p>(1991-2000)</p>
+                <h3>{this.props.title}</h3>
+                <p>{this.props.date}</p>
 
             </div>
-            <div>In der St. Lioba schule verbrachte ich meine Grundschulzeot..</div>
+            <div>{this.props.text}</div>
         </div>
     }
 }
 
 class Title extends Component {
     render() {
-        return <h2>{this.props.name}</h2>
+        return <div className={"Title"}><h2>{this.props.name}</h2></div>
     }
 }
 
 
 class Area extends Component {
     render() {
+        var stackList = this.props.stacks.map(function (e) {
+            return <Skill bgcolor={"lightgrey"} name={e.name} img={e.img} rating={e.rating} text={e.text}/>
+        })
+
         return <div className={"Area"}>
-            <div>AreaName</div>
+            <div>{this.props.name} </div>
             <div>
-                <Skill bgcolor={"lightgrey"} name={"PHP"}
-                       img={"https://png.icons8.com/color/1600/java-coffee-cup-logo.png"}/>
-                <Skill name={"PHP"} img={"https://png.icons8.com/color/1600/java-coffee-cup-logo.png"}/>
-                <Skill bgcolor={"lightgrey"} name={"PHP"}
-                       img={"https://png.icons8.com/color/1600/java-coffee-cup-logo.png"}/>
-                <Skill name={"PHP"} img={"https://png.icons8.com/color/1600/java-coffee-cup-logo.png"}/>
-                <Skill bgcolor={"lightgrey"} name={"PHP"}
-                       img={"https://png.icons8.com/color/1600/java-coffee-cup-logo.png"}/>
+                {stackList}
+
+
             </div>
+            <br/>
 
         </div>
 
@@ -165,7 +235,7 @@ class Skill extends Component {
             maxWidth: '60px'
         }
         const skillBG = {
-            backgroundColor: this.props.bgcolor
+            borderBottom: "4px solid grey"
         }
 
         return (
@@ -173,9 +243,9 @@ class Skill extends Component {
                 <div style={divStyle}>
                     <img src={this.props.img} style={smallImage}/><br/>
                     {this.props.name}<br/>
-                    <img src={"https://jenniferbresnick.files.wordpress.com/2015/04/1star.jpeg"} style={smallImage}/>
+                    <img src={this.props.rating + ".png"} style={smallImage}/>
                 </div>
-                <div style={centerDiv}>with PHP I developed a lot of stuff..</div>
+                <div style={centerDiv}>{this.props.text}</div>
             </div>
 
         )
